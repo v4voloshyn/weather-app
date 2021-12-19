@@ -126,6 +126,11 @@ header .arrow:hover {
   color: #fff;
   background-color: #43affc;
   cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+.input-part button:hover {
+  background-color: #27a1f8;
 }
 
 .wrapper .weather-part {
