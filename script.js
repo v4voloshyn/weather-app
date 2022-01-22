@@ -1,5 +1,5 @@
 //enter your weather API KEY here:
-const API_KEY = '***';
+const API_KEY = '59ef5dddba9154cbe87492f008eebfe8';
 const wrapper = document.querySelector('.wrapper');
 const inputPart = wrapper.querySelector('.input-part');
 const infoTxt = inputPart.querySelector('.info-txt');
@@ -27,7 +27,7 @@ inputField.addEventListener('keyup', (e) => {
    }
 })
 
-getLocationBtn.addEventListener('click', (e) => {
+getLocationBtn.addEventListener('click', () => {
    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(onSuccess, onError)
    } else {
@@ -40,9 +40,7 @@ backIcon.addEventListener('click', () => {
    inputField.value = '';
 })
 
-function onSuccess({
-   coords
-}) {
+function onSuccess({ coords}) {
    const { latitude, longitude } = coords;
    dataLink = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
    fetchData(dataLink);
@@ -90,4 +88,5 @@ function weatherDetails(weatherInfo) {
          weatherIcon.src = icon;
       }, 400)
    }
+   console.log(weatherInfo);
 }
